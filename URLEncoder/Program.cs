@@ -45,15 +45,15 @@ namespace URLEncoder
             do
             {
                 Console.Write("Please enter the project name: ");
-                string projectName = encode(getValidInput());
+                string projectName = Encode(GetValidInput());
                 Console.Write("Please neter the activity name: ");
-                string activityName = encode(getValidInput());
+                string activityName = Encode(GetValidInput());
                 Console.WriteLine("https://companyserver.com/content/{0}/files/{1}/{1}Report.pdf", projectName, activityName);
                 Console.Write("Would you like to encode another url? (y/n): ");
             } while (Console.ReadLine().ToLower().Equals("y"));
         }
 
-        static string getValidInput() {
+        static string GetValidInput() {
             bool valid = false;
             string input = null;
             while(!valid) 
@@ -72,7 +72,7 @@ namespace URLEncoder
             return input;
         }
 
-        static string encode(string value)
+        static string Encode(string value)
         {
             value = value.Replace("%", "%25");
             foreach (var conversion in conversions)
